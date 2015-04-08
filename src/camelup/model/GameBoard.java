@@ -54,6 +54,7 @@ public class GameBoard {
                 legBets.add(new LegBet(vals[j], new Camel(i)));
             }
         }
+        rankCamels();
 
     }
     public ArrayList<Block> getBoard() {
@@ -148,7 +149,7 @@ public class GameBoard {
         }
     }
     public String toString(){
-        return "[Board: " + board + ",\n" + "Players: " + players + ",\nOver All Winner" + overallWinBet + ",\nOver All Loser" + overallLostBet + ",\nLeg Bets:"+ legBets + ",\nPyramid:" + pyramid + "]"; //TODO
+        return "[Board: " + board + ",\n" + "Players: " + players + ",\nOver All Winner" + overallWinBet + ",\nOver All Loser" + overallLostBet + ",\nLeg Bets:"+ legBets + ",\nPyramid:" + pyramid + "\nRanked: " + rankedCamel + "]"; //TODO
     }
 
     public void rankCamels(){
