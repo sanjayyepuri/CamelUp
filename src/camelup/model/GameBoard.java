@@ -7,6 +7,9 @@ import java.util.ArrayList;
 public class GameBoard {
     private ArrayList<Block> board;
     private Pyramid pyramid;
+
+    private ArrayList<Camel> rankedCamel;
+
     private ArrayList<OverallBet> overallWinBet;
     private ArrayList<OverallBet> overallLostBet;
     private ArrayList<LegBet> legBets;
@@ -31,6 +34,7 @@ public class GameBoard {
         }
     }
     public void init(){
+        rankedCamel = new ArrayList<Camel>();
         board = new ArrayList<Block>();
         for(int i = 0; i <= 16; ++i){
             board.add(new Block(false));
@@ -145,6 +149,15 @@ public class GameBoard {
     }
     public String toString(){
         return "[Board: " + board + ",\n" + "Players: " + players + ",\nOver All Winner" + overallWinBet + ",\nOver All Loser" + overallLostBet + ",\nLeg Bets:"+ legBets + ",\nPyramid:" + pyramid + "]"; //TODO
+    }
+
+    public void rankCamels(){
+        for(int i = board.size()-1; i >= 0; --i){
+            Block block = board.get(i);
+            for(int j =0; j < block.getCamels().size(); ++j){
+                rankedCamel.add(block.getCamels().get(j));
+            }
+        }
     }
 
 }
