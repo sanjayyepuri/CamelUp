@@ -24,6 +24,7 @@ public class OverallBet extends Bet{
     public boolean isWin() {
         return win;
     }
+    public void setWin(boolean w){win = w;}
 
     public String toString(){
         return "[Player: " + player.getName() + " Camel: " + this.getCamel() + "]"; //TODO

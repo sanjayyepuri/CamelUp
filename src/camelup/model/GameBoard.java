@@ -1,5 +1,7 @@
 package camelup.model;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by yepus1 on 3/3/15.
@@ -12,7 +14,7 @@ public class GameBoard {
 
     private ArrayList<OverallBet> overallWinBet;
     private ArrayList<OverallBet> overallLostBet;
-    private ArrayList<LegBet> legBets;
+    private HashMap<Camel, ArrayList<LegBet>> legBets;
     private ArrayList<Player> players;
     private int numPlayers;
 
@@ -44,14 +46,20 @@ public class GameBoard {
         pyramid = new Pyramid();
         overallLostBet = new ArrayList<OverallBet>();
         overallWinBet = new ArrayList<OverallBet>();
-        legBets = new ArrayList<LegBet>();
+        legBets = new HashMap<Camel, ArrayList<LegBet>>();
+
         placeCamels();
         //place legbets
         for(int i = 0; i < 5; ++i){
             int[] vals = {5, 3, 2};
+
             for(int j = 0; j < 3; ++j){
+                if(j == 0){
+                    legBets.put(new Camel(i), new ArrayList<LegBet>() );
+                }
                 //5..3..2
-                legBets.add(new LegBet(vals[j], new Camel(i)));
+                LegBet bet = new LegBet(vals[j], new Camel(i));
+                legBets.get(new Camel(i)).add(bet);
             }
         }
         rankCamels();
@@ -89,14 +97,9 @@ public class GameBoard {
         this.overallLostBet = overallLostBet;
     }
 
-    public ArrayList<LegBet> getLegBets() {
+    public HashMap<Camel, ArrayList<LegBet>> getLegBets() {
         return legBets;
     }
-
-    public void setLegBets(ArrayList<LegBet> legBets) {
-        this.legBets = legBets;
-    }
-
     public ArrayList<Player> getPlayers() {
         return players;
     }
@@ -159,6 +162,15 @@ public class GameBoard {
                 rankedCamel.add(block.getCamels().get(j));
             }
         }
+    }
+    public Player getPlayer(String name){
+        for(Player player: players){
+            if(player.getName().equals(name))return player;
+        }
+        return null;
+    }
+    public LegBet getLegBet(Camel camel){
+        return legBets.get(camel).remove(0);
     }
 
 }

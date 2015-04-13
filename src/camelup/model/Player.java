@@ -88,8 +88,20 @@ public class Player {
         init();
     }
     public void putOasis(){}
-    public void takeLegBet(){}
-    public void takeOverAlBet(){}
+    public void takeLegBet(LegBet bet){
+        legBets.add(bet);
+    }
+    public OverallBet placeOverallBet(Camel camel, boolean win){
+        OverallBet b = null;
+        for(OverallBet bet : overAllBets){
+            if(bet.getCamel().equals(camel)){
+                b = bet;
+            }
+        }
+        b.setWin(win);
+        overAllBets.remove(b);
+        return b;
+    }
     public Oasis placeOasis(){
         if(!oasisPlaced) return oasis;
         return null;
