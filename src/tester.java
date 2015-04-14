@@ -49,7 +49,7 @@ public class tester {
         GameBoard board = new GameBoard(4);
         //System.err.println("ORIGINAL");
         System.out.println(board);
-        board.moveCamelTo(new Camel(2), 2);
+        board.moveCamelTo(new Camel(3), 2);
         //System.err.println("MOVED");
         System.out.println(board);
 */

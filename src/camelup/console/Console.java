@@ -1,8 +1,10 @@
 package camelup.console;
-
 import camelup.controller.GameController;
-
+import camelup.model.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+
 
 
 /**
@@ -31,9 +33,104 @@ public class Console {
         //XD
         loadingScreen();
 
-        clear();
-        printBoard();
+        String test;
+        do{
+            update();
+            test = input.next();
+            if(test.equals("next")){
+                gameController.nextPlayer();
+                clear();
+            }
+            switch(test){
+                case "next": {
+                    gameController.nextPlayer();
+                    break;
+                }
+                case "roll": {
+                    gameController.rollDie(gameController.getCurrPlayer());
+                    break;
+                }
+            }
+        }while(!test.equals("quit"));
+    }
+    public void printMap(){
+        ArrayList<Block> list = gameController.getGameBoard().getBoard();
+        String bar    = "+---------";
+        String format = "| %-7s ";
+        String format1 = "| %-7d ";
+        String content = "";
+        String content1 = "";
+        String content2 = "";
+        String border = "";
+        for (int i = 0; i <= 16; i++) {
+            Block b = list.get(i);
+            String camels = "";
+            for(Camel camel: b.getCamels()){
+                String tmp;
+                switch (camel.getColor()){
+                    case 0: tmp = "W ";break;
+                    case 1: tmp = "Y ";break;
+                    case 2: tmp = "G ";break;
+                    case 3: tmp = "B ";break;
+                    case 4: tmp = "O ";break;
+                    default: tmp = "";break;
+                }
+                camels += tmp;
+            }
+            content += String.format(format1, i+1);
+            content1 += String.format(format, camels);
+            String oasis;
+            Oasis o = b.getOasis();
+            if (o != null) {
+                oasis = (o.isDesert())?"Desert":"Oasis";
+            }
+            else oasis = "None";
+            content2 += String.format(format, oasis);
+            border += bar;
+        }
+        System.out.println("MAP");
+        System.out.println(border + "+");
+        System.out.println(content + "|");
+        System.out.println(content1 + "|");
+        System.out.println(content2 + "|");
+        System.out.println(border + "+");
+    }
+    public void printLegBets(){
+        HashMap<Integer, ArrayList<LegBet>> legbets = gameController.getGameBoard().getLegBets();
+        String format = "| %-7s | %-5d |%n";
+        System.out.println("AVAILABLE LEGBETS");
+        System.out.format("+---------+-------+%n");
+        System.out.printf("|  Camel  | Value |%n");
+        System.out.format("+---------+-------+%n");
+        for(int i : legbets.keySet()){
+            for(LegBet bet : legbets.get(i)){
+                System.out.format(format, bet.getCamel().getColorString(), bet.getValue());
+            }
+        }
+        System.out.format("+---------+-------+%n");
+    }
+    public void printPlayer(){
+        Player player = gameController.getCurrPlayer();
+        System.out.println();
+        System.out.println(player.getName() + ":");
 
+        System.out.printf("Gold: %2d    Oasis Placed: %-6s%n", player.getMoney(), player.isOasisPlaced());
+        String bar    = "+---------";
+        String format = "| %-7s ";
+        String border = "";
+        String content = "";
+
+
+        for(OverallBet bet : player.getOverAllBets()){
+            border+=bar;
+            content+=String.format(format, bet.getCamel().getColorString());
+        }
+        border += "+";
+        content += "|";
+        System.out.println("OVER ALL BETS");
+        System.out.println(border);
+        System.out.println(content);
+        System.out.println(border);
     }
 
     public void printBoard(){
@@ -107,5 +204,10 @@ public class Console {
         printTitle();
         loadingDots();
     }
-
+    public void update(){
+        clear();
+        printMap();
+        printLegBets();
+        printPlayer();
+    }
 }

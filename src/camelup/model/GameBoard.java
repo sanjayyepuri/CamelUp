@@ -120,6 +120,8 @@ public class GameBoard {
         if (block != -1) {
             arr = board.get(block).removeCamel(c);
         }
+        block += distance;
+        System.err.println(distance);
         if(board.get(block).getOasis() ==  null) {
             for (Camel camel : board.get(block).getCamels()) {
                 arr.add(camel);

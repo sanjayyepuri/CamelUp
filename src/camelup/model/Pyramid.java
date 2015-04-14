@@ -1,6 +1,7 @@
 package camelup.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by yepus1 on 3/3/15.
@@ -29,13 +30,14 @@ public class Pyramid {
     }
     public int[] rollDie(){
         int camel = (int) Math.round(Math.random()*5);
-        int dice = (int)Math.round(Math.random()*3);
+        int dice = (int)Math.round(Math.random()*3) + 1;
         die.remove(new Integer(camel));
         int[] arr = new int[2];
         arr[0] = camel;
         arr[1] = dice;
     //INDEX 0 IS THE CAMEL AND 1 IS THE DISTANCE ROLLED
         rolled.add(new Die(new Camel(camel), dice));
+        System.err.println("DICE: "  + Arrays.toString(arr));
         return arr;
     }
     public String toString(){

@@ -38,4 +38,22 @@ public class Camel implements Comparable<Camel> {
         }
         return "[Color: " + c + "]"; //TODO
     }
+    public String getColorString(){
+        String c = "";
+        switch (color) {
+            case 0:
+                c = "WHITE";break;
+            case 1:
+                c = "YELLOW";break;
+            case 2:
+                c = "GREEN";break;
+            case 3:
+                c = "BLUE";break;
+            case 4:
+                c = "ORANGE";break;
+            default: break;
+        }
+        return c;
+    }
+
 }
