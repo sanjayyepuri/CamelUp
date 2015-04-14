@@ -1,5 +1,4 @@
 package camelup.model;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,7 +13,7 @@ public class GameBoard {
 
     private ArrayList<OverallBet> overallWinBet;
     private ArrayList<OverallBet> overallLostBet;
-    private HashMap<Camel, ArrayList<LegBet>> legBets;
+    private HashMap<Integer, ArrayList<LegBet>> legBets;
     private ArrayList<Player> players;
     private int numPlayers;
 
@@ -46,7 +45,7 @@ public class GameBoard {
         pyramid = new Pyramid();
         overallLostBet = new ArrayList<OverallBet>();
         overallWinBet = new ArrayList<OverallBet>();
-        legBets = new HashMap<Camel, ArrayList<LegBet>>();
+        legBets = new HashMap<Integer, ArrayList<LegBet>>();
 
         placeCamels();
         //place legbets
@@ -55,11 +54,11 @@ public class GameBoard {
 
             for(int j = 0; j < 3; ++j){
                 if(j == 0){
-                    legBets.put(new Camel(i), new ArrayList<LegBet>() );
+                    legBets.put(i, new ArrayList<LegBet>() );
                 }
                 //5..3..2
                 LegBet bet = new LegBet(vals[j], new Camel(i));
-                legBets.get(new Camel(i)).add(bet);
+                legBets.get(i).add(bet);
             }
         }
         rankCamels();
@@ -68,7 +67,7 @@ public class GameBoard {
     public ArrayList<Block> getBoard() {
         return board;
     }
-
+    //Getters and Setters
     public void setBoard(ArrayList<Block> board) {
         this.board = board;
     }
@@ -97,7 +96,7 @@ public class GameBoard {
         this.overallLostBet = overallLostBet;
     }
 
-    public HashMap<Camel, ArrayList<LegBet>> getLegBets() {
+    public HashMap<Integer, ArrayList<LegBet>> getLegBets() {
         return legBets;
     }
     public ArrayList<Player> getPlayers() {
@@ -140,7 +139,6 @@ public class GameBoard {
             board.get(position).addCamel(new Camel(i));
         }
     }
-
     public void placeOverAllWin(OverallBet bet){
         if(bet.isWin()){
             overallWinBet.add(bet);
@@ -170,7 +168,14 @@ public class GameBoard {
         return null;
     }
     public LegBet getLegBet(Camel camel){
-        return legBets.get(camel).remove(0);
+        return legBets.get(camel.getColor()).remove(0);
+    }
+    public boolean placeOasis(Oasis oasis, int index){
+        if(board.get(index).getOasis() == null) {
+            board.get(index).setOasis(oasis);
+            return true;
+        }
+        else return false;
     }
 
 }

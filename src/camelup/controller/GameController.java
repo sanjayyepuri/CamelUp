@@ -23,5 +23,15 @@ public class GameController {
     public void placeOverallLose(Player player, Camel camel){
         gameBoard.placeOverLose(player.placeOverallBet(camel, false));
     }
+    public boolean placeTile(Player player, boolean desert, int ind){
+        Oasis o = player.placeOasis();
+        player.setOasisPlaced(true);
+        if (o != null) {
+            o.setDesert(desert);
+        }
+        return gameBoard.placeOasis(o, ind);
+    }
+
+
 
 }
