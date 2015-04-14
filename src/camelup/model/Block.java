@@ -33,6 +33,7 @@ public class Block {
                 arr.add(camel);
             }
             camels.remove(camel);
+            i--;
             if(camel.getColor() == c.getColor()){
                 break;
             }

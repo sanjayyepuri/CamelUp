@@ -34,7 +34,7 @@ public class Pyramid {
         int[] arr = new int[2];
         arr[0] = camel;
         arr[1] = dice;
-
+    //INDEX 0 IS THE CAMEL AND 1 IS THE DISTANCE ROLLED
         rolled.add(new Die(new Camel(camel), dice));
         return arr;
     }

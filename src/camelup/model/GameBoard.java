@@ -6,11 +6,11 @@ import java.util.HashMap;
  * Created by yepus1 on 3/3/15.
  */
 public class GameBoard {
+    private final int OASIS_MONEY = 1;
+    private final int LAST_BLOCK = 16;
     private ArrayList<Block> board;
     private Pyramid pyramid;
-
     private ArrayList<Camel> rankedCamel;
-
     private ArrayList<OverallBet> overallWinBet;
     private ArrayList<OverallBet> overallLostBet;
     private HashMap<Integer, ArrayList<LegBet>> legBets;
@@ -37,16 +37,15 @@ public class GameBoard {
     public void init(){
         rankedCamel = new ArrayList<Camel>();
         board = new ArrayList<Block>();
-        for(int i = 0; i <= 16; ++i){
+        for(int i = 0; i <= LAST_BLOCK; ++i){
             board.add(new Block(false));
         }
-        board.get(16).setEnd(true);
+        board.get(LAST_BLOCK).setEnd(true);
         players = new ArrayList<Player>();
         pyramid = new Pyramid();
         overallLostBet = new ArrayList<OverallBet>();
         overallWinBet = new ArrayList<OverallBet>();
         legBets = new HashMap<Integer, ArrayList<LegBet>>();
-
         placeCamels();
         //place legbets
         for(int i = 0; i < 5; ++i){
@@ -107,20 +106,43 @@ public class GameBoard {
         this.players = players;
     }
 
-    public void moveCamel(){
-
+    public int[] rollDie(){
+        return pyramid.rollDie();
     }
+    public void moveCamel(){
+        int[] die  = rollDie();
+        moveCamelTo(new Camel(die[0]), die[1]);
+    }
+
     public void moveCamelTo(Camel c, int distance){
         int block = findCamel(c);
         ArrayList<Camel> arr = new ArrayList<Camel>();
         if (block != -1) {
             arr = board.get(block).removeCamel(c);
         }
-        block += distance;
-        for (Camel camel: board.get(block).getCamels()){
-            arr.add(camel);
+        if(board.get(block).getOasis() ==  null) {
+            for (Camel camel : board.get(block).getCamels()) {
+                arr.add(camel);
+            }
+            board.get(block).setCamels(arr);
         }
-        board.get(block).setCamels(arr);
+        else{
+            board.get(block).getOasis().getPlayer().setMoney(board.get(block).getOasis().getPlayer().getMoney()+OASIS_MONEY);
+            if(board.get(block).getOasis().isDesert()){
+                block--;
+                for(Camel camel:arr){
+                    board.get(block).getCamels().add(camel);
+                }
+            }
+            else{
+                block++;
+                for (Camel camel : board.get(block).getCamels()) {
+                    arr.add(camel);
+                }
+                board.get(block).setCamels(arr);
+            }
+
+        }
     }
     public int findCamel(Camel camel){
         for(int i = 0; i < board.size(); ++i) {
@@ -150,7 +172,13 @@ public class GameBoard {
         }
     }
     public String toString(){
-        return "[Board: " + board + ",\n" + "Players: " + players + ",\nOver All Winner" + overallWinBet + ",\nOver All Loser" + overallLostBet + ",\nLeg Bets:"+ legBets + ",\nPyramid:" + pyramid + "\nRanked: " + rankedCamel + "]"; //TODO
+        return "[Board: " + board +
+                ",\nPlayers: " + players +
+                ",\nOver All Winner" + overallWinBet +
+                ",\nOver All Loser" + overallLostBet +
+                ",\nLeg Bets:"+ legBets +
+                ",\nPyramid:" + pyramid +
+                ",\nRanked: " + rankedCamel + "]"; //TODO
     }
 
     public void rankCamels(){
@@ -177,5 +205,14 @@ public class GameBoard {
         }
         else return false;
     }
+    public boolean winState(){
+        if(board.get(LAST_BLOCK).isEnd()){
+            if(board.get(LAST_BLOCK).getCamels().size() > 0){
+                return true;
+            }
+            return false;
+        }return false;
+    }
+
 
 }

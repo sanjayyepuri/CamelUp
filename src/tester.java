@@ -1,10 +1,11 @@
 /**
  * Created by yepus1 on 3/23/15.
  */
+import camelup.console.Console;
 import camelup.model.*;
 
 public class tester {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /*
         System.out.println("PYRAMID");
         Pyramid pyramid = new Pyramid();
@@ -43,10 +44,16 @@ public class tester {
         gameBoard.moveCamelTo(new Camel(2), 10);
         gameBoard.placeOverAllWin(overallbet);
         System.out.println(gameBoard);
-*/
+
 
         GameBoard board = new GameBoard(4);
+        //System.err.println("ORIGINAL");
         System.out.println(board);
-
+        board.moveCamelTo(new Camel(2), 2);
+        //System.err.println("MOVED");
+        System.out.println(board);
+*/
+        Console console = new Console();
+        console.run();
     }
 }

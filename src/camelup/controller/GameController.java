@@ -2,12 +2,14 @@ package camelup.controller;
 import camelup.model.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by yepus1 on 3/7/15.
  */
 public class GameController {
 
+    private final int PYRAMID_MONEY = 1;
     private GameBoard gameBoard;
 
     public GameController(){
@@ -31,6 +33,20 @@ public class GameController {
         }
         return gameBoard.placeOasis(o, ind);
     }
+    public boolean rollDie(Player player){
+        gameBoard.moveCamel();
+        player.setRollCount(player.getRollCount() + PYRAMID_MONEY);
+        return gameBoard.winState();//DO SOMETHING ELSE
+    }
+    public void initGameBoard(String[] list){
+        gameBoard = new GameBoard(list);
+        Collections.shuffle(gameBoard.getPlayers());
+    }
+    public GameBoard getGameBoard(){
+        return gameBoard;
+    }
+
+
 
 
 
