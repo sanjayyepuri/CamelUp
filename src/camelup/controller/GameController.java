@@ -8,7 +8,7 @@ import java.util.Collections;
  * Created by yepus1 on 3/7/15.
  */
 public class GameController {
-
+    private boolean winState = false;
     private int currPlayer = 0;
     private final int PYRAMID_MONEY = 1;
     private GameBoard gameBoard;
@@ -39,11 +39,12 @@ public class GameController {
         currPlayer++;
         return gameBoard.placeOasis(o, ind);
     }
-    public boolean rollDie(Player player){
-        gameBoard.moveCamel();
+    public int[] rollDie(Player player){
+        int[] die = gameBoard.moveCamel();
         player.setRollCount(player.getRollCount() + PYRAMID_MONEY);
         currPlayer++;
-        return gameBoard.winState();//DO SOMETHING ELSE
+        winState =  gameBoard.winState();//DO SOMETHING ELSE
+        return die;
     }
     public void initGameBoard(String[] list){
         gameBoard = new GameBoard(list);

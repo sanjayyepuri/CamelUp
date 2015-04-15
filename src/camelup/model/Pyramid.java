@@ -40,6 +40,12 @@ public class Pyramid {
         System.err.println("DICE: "  + Arrays.toString(arr));
         return arr;
     }
+    public int[] rollDieDebug(int camel, int distance){
+        int[] tmp = new int[2];
+        tmp[0] = camel;
+        tmp[1] = distance;
+        return tmp;
+    }
     public String toString(){
         return "[Rolled: " + rolled + ", Left: " + die + "]"; //TODO
     }

@@ -10,13 +10,32 @@ import java.util.Scanner;
 /**
  * Created by yepus1 on 4/14/15.
  */
+
 public class Console {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     private Scanner input = new Scanner(System.in);
     private GameController gameController = new GameController();
 
     public String[] readPlayers(){
         System.out.println("Enter number of players...");
-        int num = input.nextInt();
+        int num = 3;
+        try {
+            do {
+                num = input.nextInt();
+                if (num <= 0) {
+                    System.out.println("Please enter a number greater than 0...");
+                }
+            } while (num <= 0);
+        }
+        catch (Exception e){}
         String[] list = new String[num];
         for(int i = 0; i < num; ++i){
             System.out.println("Enter name of player " + (i+1) + " ...");
@@ -47,7 +66,7 @@ public class Console {
                     break;
                 }
                 case "roll": {
-                    gameController.rollDie(gameController.getCurrPlayer());
+                    printRoll(gameController.rollDie(gameController.getCurrPlayer()));
                     break;
                 }
             }
@@ -132,7 +151,19 @@ public class Console {
         System.out.println(content);
         System.out.println(border);
     }
-
+    public void printRoll(int[] die) throws InterruptedException{
+        clear();
+        printPyramid();
+        String dice = "";
+        switch (die[1]){
+            case 1:dice = "⚀";break;
+            case 2:dice = "⚁";break;
+            case 3:dice = "⚂";break;
+            default:break;
+        }
+        System.out.println(new Camel(die[0]).getColorString() +" : "+ dice );
+        Thread.sleep(2000);
+    }
     public void printBoard(){
         System.out.println(gameController.getGameBoard());
     }
@@ -150,7 +181,7 @@ public class Console {
         System.out.println();
     }
     public void printCamel(){
-        System.out.println("                     .--.      .'  `.");
+        System.out.println(ANSI_BLUE+"                     .--.      .'  `.");
         System.out.println("                   .' . :\\    /   :  L");
         System.out.println("                   F     :\\  /   . : |        .-._");
         System.out.println("                  /     :  \\/        J      .' ___\\");
@@ -186,28 +217,51 @@ public class Console {
         System.out.println("          L|        \\ \\      | |   | L");
         System.out.println("          J L        \\ \\     F \\   F |");
         System.out.println("           L\\         \\ \\   J   | J   L");
-        System.out.println("          /__\\_________)_`._)_  |_/   \\_____");
+        System.out.println("          /__\\_________)_`._)_  |_/   \\_____"+ANSI_RESET);
     }
     public void printTitle(){
         System.out.println();
         System.out.println();
         System.out.println();
-        System.out.println("_________                       .__     ____ ___         ");
+        System.out.println(ANSI_PURPLE + "_________                       .__     ____ ___         ");
         System.out.println("\\_   ___ \\_____    _____   ____ |  |   |    |   \\______  ");
         System.out.println("/    \\  \\/\\__  \\  /     \\_/ __ \\|  |   |    |   /\\____ \\ ");
         System.out.println("\\     \\____/ __ \\|  Y Y  \\  ___/|  |__ |    |  / |  |_> >");
         System.out.println(" \\______  (____  /__|_|  /\\___  >____/ |______/  |   __/ ");
-        System.out.println("        \\/     \\/      \\/     \\/                 |__|    ");
+        System.out.println("        \\/     \\/      \\/     \\/                 |__|    " + ANSI_RESET);
+    }
+    public void printLine(){
+        System.out.println(ANSI_RED+"==========================================================================================================================================================================="+ANSI_RESET);
+    }
+    public void printPyramid(){
+        System.out.println("               '");
+        System.out.println("              /=\\");
+        System.out.println("             /===\\ \\");
+        System.out.println("            /=====\\' \\");
+        System.out.println("           /=======\\'' \\");
+        System.out.println("          /=========\\ ' '\\");
+        System.out.println("         /===========\\''   \\");
+        System.out.println("        /=============\\ ' '  \\");
+        System.out.println("       /===============\\   ''  \\");
+        System.out.println("      /=================\\' ' ' ' \\");
+        System.out.println("     /===================\\' ' '  ' \\");
+        System.out.println("    /=====================\\' '   ' ' \\");
+        System.out.println("   /=======================\\  '   ' /");
+        System.out.println("  /=========================\\   ' /");
+        System.out.println(" /===========================\\'  /");
+        System.out.println("/=============================\\/");
     }
     public void loadingScreen() throws InterruptedException{
         printCamel();
         printTitle();
         loadingDots();
     }
+
     public void update(){
         clear();
         printMap();
         printLegBets();
+        printLine();
         printPlayer();
     }
 }

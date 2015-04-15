@@ -6,6 +6,7 @@ import java.util.HashMap;
  * Created by yepus1 on 3/3/15.
  */
 public class GameBoard {
+    private final int NUM_CAMELS = 4;
     private final int OASIS_MONEY = 1;
     private final int LAST_BLOCK = 16;
     private ArrayList<Block> board;
@@ -48,7 +49,7 @@ public class GameBoard {
         legBets = new HashMap<Integer, ArrayList<LegBet>>();
         placeCamels();
         //place legbets
-        for(int i = 0; i < 5; ++i){
+        for(int i = 0; i < NUM_CAMELS+1; ++i){
             int[] vals = {5, 3, 2};
 
             for(int j = 0; j < 3; ++j){
@@ -101,7 +102,7 @@ public class GameBoard {
     public ArrayList<Player> getPlayers() {
         return players;
     }
-
+;
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
@@ -109,8 +110,14 @@ public class GameBoard {
     public int[] rollDie(){
         return pyramid.rollDie();
     }
-    public void moveCamel(){
+    public int[] moveCamel(){
         int[] die  = rollDie();
+        moveCamelTo(new Camel(die[0]), die[1]);
+        return die;
+    }
+
+    public void moveCamelDebug(int camel, int distance){
+        int[] die = pyramid.rollDieDebug(camel, distance);
         moveCamelTo(new Camel(die[0]), die[1]);
     }
 
@@ -201,11 +208,13 @@ public class GameBoard {
         return legBets.get(camel.getColor()).remove(0);
     }
     public boolean placeOasis(Oasis oasis, int index){
-        if(board.get(index).getOasis() == null) {
-            board.get(index).setOasis(oasis);
-            return true;
+        if(board.get(index).getOasis() == null && board.get(index-1).getOasis() == null && board.get(index + 1).getOasis() == null) {
+            if(!board.get(index).isEnd()) {
+                board.get(index).setOasis(oasis);
+                return true;
+            }
         }
-        else return false;
+        return false;
     }
     public boolean winState(){
         if(board.get(LAST_BLOCK).isEnd()){
@@ -215,6 +224,4 @@ public class GameBoard {
             return false;
         }return false;
     }
-
-
 }
