@@ -9,6 +9,7 @@ public class Camel implements Comparable<Camel> {
         this.color = color;
     }
 
+
     public int getColor() {
         return color;
     }

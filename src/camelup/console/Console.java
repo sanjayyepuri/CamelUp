@@ -69,14 +69,33 @@ public class Console {
                     printRoll(gameController.rollDie(gameController.getCurrPlayer()));
                     break;
                 }
+                case "legbet": {
+                    System.out.println("Enter Camel 0-3 in order...");
+                    int camel = input.nextInt();
+                    gameController.takeLegBet(gameController.getCurrPlayer(), new Camel(camel));
+                    break;
+                }
+                case "overallbet":{
+                    break;
+                }
+                case "placetile":{
+                    break;
+                }
             }
         }while(!test.equals("quit"));
+    }
+    public void printInstructions(){
+        System.out.println("'next' to skip turn...");
+        System.out.println("'roll' to roll a die...");
+        System.out.println("'legbet' to bet on a leg...");
+        System.out.println("'overallbet' to place an Overall bet...");
+        System.out.println("'placetile' to place an Oasis or Desert...");
     }
     public void printMap(){
         ArrayList<Block> list = gameController.getGameBoard().getBoard();
         String bar    = "+---------";
         String format = "| %-7s ";
-        String format1 = "| %-7d ";
+        String format1 = "| %-8d";
         String content = "";
         String content1 = "";
         String content2 = "";
@@ -131,7 +150,7 @@ public class Console {
     public void printPlayer(){
         Player player = gameController.getCurrPlayer();
         System.out.println();
-        System.out.println(player.getName() + ":");
+        System.out.println(ANSI_PURPLE+player.getName() + ":" + ANSI_RESET);
 
         System.out.printf("Gold: %2d    Oasis Placed: %-6s%n", player.getMoney(), player.isOasisPlaced());
         String bar    = "+---------";
@@ -150,18 +169,31 @@ public class Console {
         System.out.println(border);
         System.out.println(content);
         System.out.println(border);
+        System.out.println("LEGBETS");
+        border = "";
+        content = "";
+        String content1 = "";
+        for(LegBet bet : player.getLegBets()){
+            border += bar;
+            content += String.format(format, bet.getCamel().getColorString());
+            content1 += String.format("| %-7d ", bet.getValue());
+        }
+        border += "+";
+        content += "|";
+        content1 += "|";
+        System.out.println(border);
+        System.out.println(content);
+        System.out.println(content1);
+        System.out.println(border);
+
     }
     public void printRoll(int[] die) throws InterruptedException{
         clear();
         printPyramid();
-        String dice = "";
-        switch (die[1]){
-            case 1:dice = "⚀";break;
-            case 2:dice = "⚁";break;
-            case 3:dice = "⚂";break;
-            default:break;
-        }
-        System.out.println(new Camel(die[0]).getColorString() +" : "+ dice );
+        System.out.println(new Camel(die[0]).getColorString());
+        System.out.println("+---+");
+        System.out.printf("| %d |%n", die[1]);
+        System.out.println("+---+");
         Thread.sleep(2000);
     }
     public void printBoard(){
@@ -262,6 +294,7 @@ public class Console {
         printMap();
         printLegBets();
         printLine();
+        printInstructions();
         printPlayer();
     }
 }

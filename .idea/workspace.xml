@@ -7,12 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="092d696d-6da7-4913-add4-ca9ed625c14a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CamelUp/camelup/model/Pyramid.class" afterPath="$PROJECT_DIR$/out/production/CamelUp/camelup/model/Pyramid.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/camelup/model/Camel.java" afterPath="$PROJECT_DIR$/src/camelup/model/Camel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/camelup/console/Console.java" afterPath="$PROJECT_DIR$/src/camelup/console/Console.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/camelup/model/GameBoard.java" afterPath="$PROJECT_DIR$/src/camelup/model/GameBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/camelup/controller/GameController.java" afterPath="$PROJECT_DIR$/src/camelup/controller/GameController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/camelup/model/Pyramid.java" afterPath="$PROJECT_DIR$/src/camelup/model/Pyramid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CamelUp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +40,11 @@
                   <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
                     <element signature="method#run#0;class#Console#0" expanded="false" />
-                    <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
-                    <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
-                    <element signature="e#5753#5754#0" expanded="true" />
-                    <element signature="e#5816#5817#0" expanded="true" />
+                    <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+                    <element signature="e#7058#7059#0" expanded="true" />
+                    <element signature="e#7121#7122#0" expanded="true" />
                     <element signature="method#printCamel#0;class#Console#0" expanded="false" />
                     <element signature="method#printTitle#0;class#Console#0" expanded="false" />
                     <element signature="method#printLine#0;class#Console#0" expanded="false" />
@@ -72,8 +69,8 @@
           <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/camelup/controller/GameController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5707547">
-                  <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+                <state vertical-scroll-proportion="0.23113208">
+                  <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -85,21 +82,36 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Console.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Console.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/camelup/console/Console.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.9174528">
-                  <caret line="182" column="28" selection-start-line="182" selection-start-column="28" selection-end-line="182" selection-end-column="28" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="22" selection-end-column="56" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#readPlayers#0;class#Console#0" expanded="false" />
+                    <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+                    <element signature="method#printMap#0;class#Console#0" expanded="false" />
                     <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
                     <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
+                    <element signature="method#printRoll#0;class#Console#0" expanded="false" />
+                    <element signature="method#loadingDots#0;class#Console#0" expanded="false" />
                     <element signature="method#printCamel#0;class#Console#0" expanded="false" />
                     <element signature="method#printTitle#0;class#Console#0" expanded="false" />
                     <element signature="method#printLine#0;class#Console#0" expanded="false" />
                     <element signature="method#printPyramid#0;class#Console#0" expanded="false" />
                     <element signature="method#loadingScreen#0;class#Console#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Camel.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/camelup/model/Camel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.21462265">
+                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -131,11 +143,11 @@
         <option value="$PROJECT_DIR$/src/camelup/model/Block.java" />
         <option value="$PROJECT_DIR$/src/camelup/console/Consoel.java" />
         <option value="$PROJECT_DIR$/src/tester.java" />
-        <option value="$PROJECT_DIR$/src/camelup/model/Pyramid.java" />
-        <option value="$PROJECT_DIR$/src/camelup/model/Camel.java" />
         <option value="$PROJECT_DIR$/src/camelup/model/GameBoard.java" />
         <option value="$PROJECT_DIR$/src/camelup/controller/GameController.java" />
+        <option value="$PROJECT_DIR$/src/camelup/model/Pyramid.java" />
         <option value="$PROJECT_DIR$/src/camelup/console/Console.java" />
+        <option value="$PROJECT_DIR$/src/camelup/model/Camel.java" />
       </list>
     </option>
   </component>
@@ -272,9 +284,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,7 +517,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Floobits Chat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32608697" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="GhcMod" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cabal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -513,7 +525,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8798627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="149" y="19" width="1154" height="884" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7631579" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="149" y="19" width="1154" height="884" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -536,7 +548,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -545,6 +557,38 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/camelup/controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/camelup/console/Console.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readPlayers#0;class#Console#0" expanded="false" />
+            <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+            <element signature="method#printMap#0;class#Console#0" expanded="false" />
+            <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
+            <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
+            <element signature="method#printRoll#0;class#Console#0" expanded="false" />
+            <element signature="method#loadingDots#0;class#Console#0" expanded="false" />
+            <element signature="method#printCamel#0;class#Console#0" expanded="false" />
+            <element signature="method#printTitle#0;class#Console#0" expanded="false" />
+            <element signature="method#printLine#0;class#Console#0" expanded="false" />
+            <element signature="method#printPyramid#0;class#Console#0" expanded="false" />
+            <element signature="method#loadingScreen#0;class#Console#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/camelup/model/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -571,8 +615,13 @@
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#readPlayers#0;class#Console#0" expanded="false" />
+            <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+            <element signature="method#printMap#0;class#Console#0" expanded="false" />
             <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
             <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
+            <element signature="method#printRoll#0;class#Console#0" expanded="false" />
+            <element signature="method#loadingDots#0;class#Console#0" expanded="false" />
             <element signature="method#printCamel#0;class#Console#0" expanded="false" />
             <element signature="method#printTitle#0;class#Console#0" expanded="false" />
             <element signature="method#printLine#0;class#Console#0" expanded="false" />
@@ -588,8 +637,13 @@
           <caret line="189" column="5" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#readPlayers#0;class#Console#0" expanded="false" />
+            <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+            <element signature="method#printMap#0;class#Console#0" expanded="false" />
             <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
             <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
+            <element signature="method#printRoll#0;class#Console#0" expanded="false" />
+            <element signature="method#loadingDots#0;class#Console#0" expanded="false" />
             <element signature="method#printCamel#0;class#Console#0" expanded="false" />
             <element signature="method#printTitle#0;class#Console#0" expanded="false" />
             <element signature="method#printLine#0;class#Console#0" expanded="false" />
@@ -645,8 +699,13 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#readPlayers#0;class#Console#0" expanded="false" />
+            <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+            <element signature="method#printMap#0;class#Console#0" expanded="false" />
             <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
             <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
+            <element signature="method#printRoll#0;class#Console#0" expanded="false" />
+            <element signature="method#loadingDots#0;class#Console#0" expanded="false" />
             <element signature="method#printCamel#0;class#Console#0" expanded="false" />
             <element signature="method#printTitle#0;class#Console#0" expanded="false" />
             <element signature="method#printLine#0;class#Console#0" expanded="false" />
@@ -720,8 +779,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -817,8 +876,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -953,13 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/camelup/model/Pyramid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46437994">
@@ -970,14 +1022,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/camelup/model/Camel.java">
+    <entry file="file://$PROJECT_DIR$/src/camelup/model/Pyramid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13207547">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.6273585">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -991,30 +1040,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/camelup/controller/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5707547">
-          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/camelup/console/Console.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9174528">
-          <caret line="182" column="28" selection-start-line="182" selection-start-column="28" selection-end-line="182" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="22" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#readPlayers#0;class#Console#0" expanded="false" />
+            <element signature="method#printInstructions#0;class#Console#0" expanded="false" />
+            <element signature="method#printMap#0;class#Console#0" expanded="false" />
             <element signature="method#printLegBets#0;class#Console#0" expanded="false" />
             <element signature="method#printPlayer#0;class#Console#0" expanded="false" />
+            <element signature="method#printRoll#0;class#Console#0" expanded="false" />
+            <element signature="method#loadingDots#0;class#Console#0" expanded="false" />
             <element signature="method#printCamel#0;class#Console#0" expanded="false" />
             <element signature="method#printTitle#0;class#Console#0" expanded="false" />
             <element signature="method#printLine#0;class#Console#0" expanded="false" />
             <element signature="method#printPyramid#0;class#Console#0" expanded="false" />
             <element signature="method#loadingScreen#0;class#Console#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/camelup/controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23113208">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/camelup/model/Camel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21462265">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
