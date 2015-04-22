@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
-
 /**
  * Created by yepus1 on 4/14/15.
  */
@@ -79,6 +77,11 @@ public class Console {
                     break;
                 }
                 case "placetile":{
+                    System.out.println("Enter index of tile...");
+                    int index = input.nextInt();
+                    System.out.println("Desert or Oasis(d/o)");
+                    String desert = input.next();
+                    gameController.placeTile(gameController.getCurrPlayer(), desert.equals("d"), index);
                     break;
                 }
             }
