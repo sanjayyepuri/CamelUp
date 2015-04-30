@@ -17,7 +17,7 @@ public class GameController {
     public GameController(){
         gameBoard = new GameBoard();
     }
-
+    //Player Options
     public void takeLegBet(Player player, Camel camel){
         player.takeLegBet(gameBoard.getLegBet(camel));
         currPlayer++;
@@ -46,6 +46,7 @@ public class GameController {
         winState =  gameBoard.winState();//DO SOMETHING ELSE
         return die;
     }
+
     public void initGameBoard(String[] list){
         gameBoard = new GameBoard(list);
         Collections.shuffle(gameBoard.getPlayers());

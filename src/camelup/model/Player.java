@@ -94,12 +94,15 @@ public class Player {
     public OverallBet placeOverallBet(Camel camel, boolean win){
         OverallBet b = null;
         for(OverallBet bet : overAllBets){
-            if(bet.getCamel().equals(camel)){
+            System.out.println(bet);
+            if(bet.getCamel().getColor() == camel.getColor()) {
                 b = bet;
             }
         }
-        b.setWin(win);
-        overAllBets.remove(b);
+        if(b != null) {
+            b.setWin(win);
+            overAllBets.remove(b);
+        }
         return b;
     }
     public Oasis placeOasis(){
@@ -110,9 +113,4 @@ public class Player {
     public String toString(){
         return "\n[Name: " + name + ", Leg Bets: " + legBets + "OverAll Bets: " + overAllBets + ", Oasis: " + oasis + "]"; //TODO
     }
-
-
-
-
-
 }

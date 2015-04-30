@@ -74,6 +74,14 @@ public class Console {
                     break;
                 }
                 case "overallbet":{
+                    System.out.println("Enter Camel 0-3 in order...");
+                    int camel = input.nextInt();
+                    System.out.println("Enter 'w' for win or 'l' for lose...");
+                    String wl = input.next();
+                    switch(wl){
+                        case "w": gameController.placeOverallWin(gameController.getCurrPlayer(), new Camel(camel));break;
+                        case "l": gameController.placeOverallLose(gameController.getCurrPlayer(), new Camel(camel));break;
+                    }
                     break;
                 }
                 case "placetile":{
