@@ -43,7 +43,7 @@ public class GameController {
         int[] die = gameBoard.moveCamel();
         player.setRollCount(player.getRollCount() + PYRAMID_MONEY);
         currPlayer++;
-        winState =  gameBoard.winState();//DO SOMETHING ELSE
+        winState = gameBoard.winState();//DO SOMETHING ELSE
         return die;
     }
 
@@ -60,5 +60,21 @@ public class GameController {
     }
     public void nextPlayer(){
         currPlayer++;
+    }
+    public boolean isGameOver(){
+        Block lastBlock = gameBoard.getBoard().get( gameBoard.getBoard().size()-1);
+        if(lastBlock.getCamels().size() > 0){
+            return true;
+        }
+        return false;
+    }
+    public boolean isRoundOver(){
+        if(gameBoard.getPyramid().isEmpty()){
+            return true;
+        }
+        return false;
+    }
+    public void resetPyramid(){
+        gameBoard.setPyramid(new Pyramid());
     }
 }

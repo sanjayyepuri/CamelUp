@@ -93,6 +93,17 @@ public class Console {
                     break;
                 }
             }
+            if(gameController.isRoundOver()){
+                //RESET PYRAMID
+                //RESOLVE THE LEGBETS AND GOLD
+                //PUT BACK THE LEGBETS
+            }
+            else if(gameController.isGameOver()){
+                //FIND WHICH CAMEL IS THE WINNNER AND WHICH IS THE LOSE
+                //CALCULATE THE LEGBETS
+                //RESOLVE ALL GOLD
+                //RANK PLAYERS
+            }
         }while(!test.equals("quit"));
     }
     public void printInstructions(){

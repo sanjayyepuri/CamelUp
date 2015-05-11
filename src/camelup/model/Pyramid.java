@@ -46,6 +46,9 @@ public class Pyramid {
         tmp[1] = distance;
         return tmp;
     }
+    public boolean isEmpty(){
+        return die.isEmpty();
+    }
     public String toString(){
         return "[Rolled: " + rolled + ", Left: " + die + "]"; //TODO
     }
