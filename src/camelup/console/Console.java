@@ -94,15 +94,16 @@ public class Console {
                 }
             }
             if(gameController.isRoundOver()){
-                //RESET PYRAMID
-                //RESOLVE THE LEGBETS AND GOLD
-                //PUT BACK THE LEGBETS
+                gameController.resetPyramid();
+                gameController.roundEnd();
+                endOfRound();
             }
             else if(gameController.isGameOver()){
-                //FIND WHICH CAMEL IS THE WINNNER AND WHICH IS THE LOSE
-                //CALCULATE THE LEGBETS
-                //RESOLVE ALL GOLD
+                gameController.resetPyramid();
+                gameController.roundEnd();
+                //RESOLVE OVERALLBETS
                 //RANK PLAYERS
+                break;
             }
         }while(!test.equals("quit"));
     }
@@ -224,6 +225,13 @@ public class Console {
     public void clear(){
         for(int i = 0; i < 50; ++i)System.out.println();
     }
+    public void endOfRound()throws InterruptedException{
+        clear();
+        endOfLegTitle();
+        System.out.print("WINNER: ");
+        System.out.println(gameController.getGameBoard().firstPlace().getColorString());
+        Thread.sleep(3000);
+    }
 
     //STUFF FOR FUN
     public void loadingDots()throws InterruptedException {
@@ -309,6 +317,14 @@ public class Console {
         printCamel();
         printTitle();
         loadingDots();
+    }
+    public void endOfLegTitle(){
+        System.out.println("___________           .___         _____  .____                 ");
+        System.out.println("\\_   _____/ ____    __| _/   _____/ ____\\ |    |    ____   ____  ");
+        System.out.println(" |    __)_ /    \\  / __ |   /  _ \\   __\\  |    |  _/ __ \\ / ___\\ ");
+        System.out.println(" |        \\   |  \\/ /_/ |  (  <_> )  |    |    |__\\  ___// /_/  >");
+        System.out.println("/_______  /___|  /\\____ |   \\____/|__|    |_______ \\___  >___  / ");
+        System.out.println("        \\/     \\/      \\/                         \\/   \\/_____/  ");
     }
 
     public void update(){

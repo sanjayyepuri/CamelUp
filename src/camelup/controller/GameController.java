@@ -8,7 +8,6 @@ import java.util.Collections;
  * Created by yepus1 on 3/7/15.
  */
 public class GameController {
-    private boolean winState = false;
     private int currPlayer = 0;
     private final int PYRAMID_MONEY = 1;
     private GameBoard gameBoard;
@@ -43,7 +42,6 @@ public class GameController {
         int[] die = gameBoard.moveCamel();
         player.setRollCount(player.getRollCount() + PYRAMID_MONEY);
         currPlayer++;
-        winState = gameBoard.winState();//DO SOMETHING ELSE
         return die;
     }
 
@@ -76,5 +74,19 @@ public class GameController {
     }
     public void resetPyramid(){
         gameBoard.setPyramid(new Pyramid());
+    }
+    public void roundEnd(){
+        gameBoard.rankCamels();
+        Camel win = gameBoard.firstPlace();
+        ArrayList<Player> players = gameBoard.getPlayers();
+        for(Player player: players){
+            for(LegBet legBet: player.getLegBets()){
+                if(legBet.getCamel().getColor() == win.getColor()){
+                    player.setMoney(player.getMoney() + legBet.getValue());
+                }
+            }
+            player.setLegBets(new ArrayList<LegBet>());
+        }
+        gameBoard.resetLegBets();
     }
 }

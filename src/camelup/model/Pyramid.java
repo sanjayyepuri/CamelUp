@@ -29,7 +29,8 @@ public class Pyramid {
         }
     }
     public int[] rollDie(){
-        int camel = (int) Math.round(Math.random()*5);
+        //int camel = (int) Math.round(Math.random()*5);
+        int camel = die.get((int)(Math.random()*die.size()));
         int dice = (int)Math.round(Math.random()*2) + 1;
         die.remove(new Integer(camel));
         int[] arr = new int[2];

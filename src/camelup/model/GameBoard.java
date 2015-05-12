@@ -64,6 +64,21 @@ public class GameBoard {
         rankCamels();
 
     }
+    public void resetLegBets(){
+        legBets = new HashMap<Integer, ArrayList<LegBet>>();
+        for(int i = 0; i < NUM_CAMELS+1; ++i){
+            int[] vals = {5, 3, 2};
+
+            for(int j = 0; j < 3; ++j){
+                if(j == 0){
+                    legBets.put(i, new ArrayList<LegBet>() );
+                }
+                //5..3..2
+                LegBet bet = new LegBet(vals[j], new Camel(i));
+                legBets.get(i).add(bet);
+            }
+        }
+    }
     public ArrayList<Block> getBoard() {
         return board;
     }
@@ -223,5 +238,11 @@ public class GameBoard {
             }
             return false;
         }return false;
+    }
+    public Camel firstPlace(){
+        return rankedCamel.get(0);
+    }
+    public Camel lastPlace(){
+        return rankedCamel.get(rankedCamel.size()-1);
     }
 }
