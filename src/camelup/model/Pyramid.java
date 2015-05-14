@@ -13,7 +13,7 @@ public class Pyramid {
         public Die(Camel c, int d){
             camel = c;
             distance = d;
-        }
+        }fvgfgfgfg
         public String toString(){
             return "[Camel: " + camel + ", Distance: " + distance +"]";
         }
@@ -24,7 +24,7 @@ public class Pyramid {
     public Pyramid(){
         rolled = new ArrayList<Die>();
         die = new ArrayList<Integer>();
-        for(int i = 0; i < 5; ++i){
+        for(int i = 0; i < 4; ++i){
             die.add(i);
         }
     }

@@ -11,7 +11,7 @@ public class GameBoard {
     private final int LAST_BLOCK = 16;
     private ArrayList<Block> board;
     private Pyramid pyramid;
-    private ArrayList<Camel> rankedCamel;
+    public ArrayList<Camel> rankedCamel;
     private ArrayList<OverallBet> overallWinBet;
     private ArrayList<OverallBet> overallLostBet;
     private HashMap<Integer, ArrayList<LegBet>> legBets;
@@ -206,6 +206,7 @@ public class GameBoard {
     }
 
     public void rankCamels(){
+        rankedCamel = new ArrayList<Camel>();
         for(int i = board.size()-1; i >= 0; --i){
             Block block = board.get(i);
             for(int j =0; j < block.getCamels().size(); ++j){

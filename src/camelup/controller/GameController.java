@@ -40,7 +40,8 @@ public class GameController {
     }
     public int[] rollDie(Player player){
         int[] die = gameBoard.moveCamel();
-        player.setRollCount(player.getRollCount() + PYRAMID_MONEY);
+        System.out.println("STEVE" + player.getMoney());
+        player.setMoney(player.getMoney() + PYRAMID_MONEY);
         currPlayer++;
         return die;
     }
@@ -77,6 +78,7 @@ public class GameController {
     }
     public void roundEnd(){
         gameBoard.rankCamels();
+        System.out.println("RANK" + gameBoard.rankedCamel);
         Camel win = gameBoard.firstPlace();
         ArrayList<Player> players = gameBoard.getPlayers();
         for(Player player: players){
